@@ -1,2 +1,2 @@
-public class LinearProbingParkTable {
+public class LinearProbingParkTable implements SmartParkTable{
 }

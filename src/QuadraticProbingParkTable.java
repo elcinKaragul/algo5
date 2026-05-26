@@ -1,2 +1,2 @@
-public class QuadraticProbingParkTable {
+public class QuadraticProbingParkTable implements SmartParkTable{
 }
