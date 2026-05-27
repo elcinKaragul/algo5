@@ -5,6 +5,13 @@ public class Vehicle implements Comparable<Vehicle>
     private String vehicleType; // "CAR", "SUV", "MOTORCYCLE", "TRUCK"
     private long entryTimestamp; // Unix timestamp at gate entry
     // Constructor, getters, equals(), compareTo() are required.
+
+    // true = HASH_FULL, false = HASH_CITY
+    private static boolean useFullHash = true;
+    public static void setUseFullHash(boolean val) {
+        useFullHash = val;
+    }
+
     //Constructor
     public Vehicle(String licensePlate,String ownerName,String vehicleType, long entryTimestamp){
         this.licensePlate=licensePlate.toUpperCase();
@@ -57,6 +64,11 @@ public class Vehicle implements Comparable<Vehicle>
 
         }
         return hash;
+    }
+    @Override
+    public int hashCode() {
+        if (useFullHash) return HASH_FULL();
+        else             return HASH_CITY();
     }
 
 
